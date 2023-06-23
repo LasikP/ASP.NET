@@ -1,0 +1,53 @@
+@model OnlinePizzaWebApplication.Models.Reviews
+
+@{
+    ViewData["Title"] = "Usuñ";
+}
+
+<h2>Usuñ</h2>
+
+<h3>Czy napewno chcesz to usun¹æ?</h3>
+<div>
+    <h4>Recenzje</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="Id" />
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pizza)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pizza.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuñ" class="btn btn-danger" /> |
+            <a asp-action="Index">Wróc do listy</a>
+        </div>
+    </form>
+</div>

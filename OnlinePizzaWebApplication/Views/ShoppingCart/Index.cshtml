@@ -1,0 +1,51 @@
+@model ShoppingCartViewModel
+
+@{
+    var pageName = "Szczegó³y zamówienia";
+    ViewData["Title"] = pageName;
+}
+
+<h2>@pageName</h2>
+<h4>Oto pyszne pizze w Twoim koszyku</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Wybrana iloœæ</th> 
+            <th>Pizza</th>
+            <th class="text-right">Cena za sztukê</th>
+            <th class="text-right">£¹czna cena</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+        {
+            <tr>
+                <td class="text-center"><a class="btn btn-default" asp-action="RemoveFromShoppingCart" asp-route-pizzaId="@line.Pizza.Id"><b>-</b></a>          <b>@line.Amount</b>          <a class="btn btn-default" asp-action="AddToShoppingCart" asp-route-pizzaId="@line.Pizza.Id"><b>+</b></a></td>
+                <td class="text-left">@line.Pizza.Name</td>
+                <td class="text-right">@line.Pizza.Price.ToString("c")</td>
+                <td class="text-right">
+                    @((line.Amount * line.Pizza.Price).ToString("c"))
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Do zap³aty</td>
+            <td class="text-right">
+                @Model.ShoppingCartTotal.ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div align="right">
+    @if (Model.ShoppingCartTotal > 0)
+    {
+        <a asp-controller="Orders" asp-action="Checkout" class="btn btn-primary">Dodaj</a>
+    }
+</div>
+<div align="left">
+    <a asp-controller="ShoppingCart" asp-action="ClearCart" class="btn btn-danger">Wyczyœæ</a>
+</div>
+

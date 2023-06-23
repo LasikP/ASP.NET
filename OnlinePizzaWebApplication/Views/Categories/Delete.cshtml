@@ -1,0 +1,35 @@
+@model OnlinePizzaWebApplication.Models.Categories
+
+@{
+    ViewData["Title"] = "Usuñ";
+}
+
+<h2>Usuñ</h2>
+
+<h3>Czy jesteœ pewny ¿e chcesz to usun¹æ?</h3>
+<div>
+    <h4>Kategorie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="Id" />
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Usuñ">
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuñ" class="btn btn-danger" /> |
+            <a asp-action="Index">Wróc do listy</a>
+        </div>
+    </form>
+</div>

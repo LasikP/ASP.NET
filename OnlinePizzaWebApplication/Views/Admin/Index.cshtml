@@ -1,0 +1,14 @@
+
+@{
+    var ModelName = "Strona Admina";
+    ViewData["Title"] = ModelName;
+}
+
+<h2>@ModelName</h2>
+
+<h3><a asp-controller="Pizzas" asp-action="Index">Pizza</a></h3>
+<h3><a asp-controller="Categories" asp-action="Index">Kategorie</a></h3>
+<h3><a asp-controller="Reviews" asp-action="Index">Recenzje</a></h3>
+<h3><a asp-controller="Orders" asp-action="Index">Zamówienia</a></h3>
+<h3><a asp-controller="Admin" asp-action="SeedDatabase">Przywróæ Baze danych</a></h3>
+<h3><a asp-controller="Admin" asp-action="ClearDatabase">Wyczyœæ Baze danych</a></h3>
